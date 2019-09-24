@@ -8,7 +8,7 @@ namespace Huffman
 {
     static class huffmanExtension
     {
-        static List<Nodo> sinPadres(this List<Nodo> arbol)
+        public static List<Nodo> sinPadres(this List<Nodo> arbol)
         {
             List<Nodo> sinPadres = new List<Nodo>();
             foreach (var nodo in arbol)
@@ -21,5 +21,11 @@ namespace Huffman
 
             return sinPadres;
         }
+        public static List<Nodo> quitarNodo(this List<Nodo> arbol, Nodo der)
+        {
+            arbol.Remove(der);
+            return arbol;
+        }
+
     }
 }
