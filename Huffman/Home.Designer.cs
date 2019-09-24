@@ -37,19 +37,21 @@
             this.radBtnFile = new System.Windows.Forms.RadioButton();
             this.radBtnText = new System.Windows.Forms.RadioButton();
             this.toolStripCont = new System.Windows.Forms.ToolStripContainer();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLblText = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLblCompact = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContSide = new System.Windows.Forms.SplitContainer();
             this.splitContInfo = new System.Windows.Forms.SplitContainer();
             this.richTxtBxSource = new System.Windows.Forms.RichTextBox();
             this.richTxtBxCompact = new System.Windows.Forms.RichTextBox();
-            this.richTxtBxResult = new System.Windows.Forms.RichTextBox();
             this.treeGraph = new System.Windows.Forms.TreeView();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLblText = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLblCompact = new System.Windows.Forms.ToolStripStatusLabel();
+            this.richTxtBxResult = new System.Windows.Forms.RichTextBox();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.grpBxHuffman.SuspendLayout();
             this.toolStripCont.BottomToolStripPanel.SuspendLayout();
             this.toolStripCont.ContentPanel.SuspendLayout();
             this.toolStripCont.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContSide)).BeginInit();
             this.splitContSide.Panel1.SuspendLayout();
             this.splitContSide.Panel2.SuspendLayout();
@@ -58,7 +60,6 @@
             this.splitContInfo.Panel1.SuspendLayout();
             this.splitContInfo.Panel2.SuspendLayout();
             this.splitContInfo.SuspendLayout();
-            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -95,6 +96,7 @@
             this.btnShow.TabIndex = 5;
             this.btnShow.Text = "MOSTRAR";
             this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.BtnShow_Click);
             // 
             // btnCompact
             // 
@@ -104,6 +106,7 @@
             this.btnCompact.TabIndex = 4;
             this.btnCompact.Text = "COMPACTAR";
             this.btnCompact.UseVisualStyleBackColor = true;
+            this.btnCompact.Click += new System.EventHandler(this.BtnCompact_Click);
             // 
             // lblFile
             // 
@@ -122,6 +125,7 @@
             this.btnFile.TabIndex = 2;
             this.btnFile.Text = "ARCHIVO";
             this.btnFile.UseVisualStyleBackColor = true;
+            this.btnFile.Click += new System.EventHandler(this.BtnFile_Click);
             // 
             // radBtnFile
             // 
@@ -133,6 +137,7 @@
             this.radBtnFile.TabStop = true;
             this.radBtnFile.Text = "Archivo";
             this.radBtnFile.UseVisualStyleBackColor = true;
+            this.radBtnFile.CheckedChanged += new System.EventHandler(this.RadBtnFile_CheckedChanged);
             // 
             // radBtnText
             // 
@@ -144,6 +149,7 @@
             this.radBtnText.TabStop = true;
             this.radBtnText.Text = "Texto";
             this.radBtnText.UseVisualStyleBackColor = true;
+            this.radBtnText.CheckedChanged += new System.EventHandler(this.RadBtnText_CheckedChanged);
             // 
             // toolStripCont
             // 
@@ -155,13 +161,39 @@
             // toolStripCont.ContentPanel
             // 
             this.toolStripCont.ContentPanel.Controls.Add(this.splitContSide);
-            this.toolStripCont.ContentPanel.Size = new System.Drawing.Size(1202, 537);
+            this.toolStripCont.ContentPanel.Size = new System.Drawing.Size(1202, 512);
             this.toolStripCont.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripCont.Location = new System.Drawing.Point(0, 150);
             this.toolStripCont.Name = "toolStripCont";
             this.toolStripCont.Size = new System.Drawing.Size(1202, 563);
             this.toolStripCont.TabIndex = 2;
             this.toolStripCont.Text = "toolStripContainer1";
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLblText,
+            this.toolStripStatusLblCompact});
+            this.statusStrip.Location = new System.Drawing.Point(0, 0);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(1202, 26);
+            this.statusStrip.TabIndex = 1;
+            // 
+            // toolStripStatusLblText
+            // 
+            this.toolStripStatusLblText.Name = "toolStripStatusLblText";
+            this.toolStripStatusLblText.Size = new System.Drawing.Size(1109, 20);
+            this.toolStripStatusLblText.Spring = true;
+            this.toolStripStatusLblText.Text = "Cantidad texto";
+            this.toolStripStatusLblText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // toolStripStatusLblCompact
+            // 
+            this.toolStripStatusLblCompact.Name = "toolStripStatusLblCompact";
+            this.toolStripStatusLblCompact.Size = new System.Drawing.Size(78, 20);
+            this.toolStripStatusLblCompact.Text = "Porcentaje";
             // 
             // splitContSide
             // 
@@ -179,7 +211,7 @@
             this.splitContSide.Panel2.Controls.Add(this.treeGraph);
             this.splitContSide.Panel2.Controls.Add(this.richTxtBxResult);
             this.splitContSide.Panel2MinSize = 320;
-            this.splitContSide.Size = new System.Drawing.Size(1202, 537);
+            this.splitContSide.Size = new System.Drawing.Size(1202, 512);
             this.splitContSide.SplitterDistance = 850;
             this.splitContSide.SplitterWidth = 5;
             this.splitContSide.TabIndex = 0;
@@ -200,7 +232,7 @@
             // 
             this.splitContInfo.Panel2.Controls.Add(this.richTxtBxCompact);
             this.splitContInfo.Panel2MinSize = 250;
-            this.splitContInfo.Size = new System.Drawing.Size(850, 537);
+            this.splitContInfo.Size = new System.Drawing.Size(850, 512);
             this.splitContInfo.SplitterDistance = 250;
             this.splitContInfo.TabIndex = 0;
             // 
@@ -212,6 +244,7 @@
             this.richTxtBxSource.Size = new System.Drawing.Size(850, 250);
             this.richTxtBxSource.TabIndex = 0;
             this.richTxtBxSource.Text = "";
+            this.richTxtBxSource.TextChanged += new System.EventHandler(this.RichTxtBxSource_TextChanged);
             // 
             // richTxtBxCompact
             // 
@@ -219,53 +252,33 @@
             this.richTxtBxCompact.Location = new System.Drawing.Point(0, 0);
             this.richTxtBxCompact.Name = "richTxtBxCompact";
             this.richTxtBxCompact.ReadOnly = true;
-            this.richTxtBxCompact.Size = new System.Drawing.Size(850, 283);
+            this.richTxtBxCompact.Size = new System.Drawing.Size(850, 258);
             this.richTxtBxCompact.TabIndex = 0;
             this.richTxtBxCompact.Text = "";
-            // 
-            // richTxtBxResult
-            // 
-            this.richTxtBxResult.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.richTxtBxResult.Location = new System.Drawing.Point(0, 354);
-            this.richTxtBxResult.Name = "richTxtBxResult";
-            this.richTxtBxResult.ReadOnly = true;
-            this.richTxtBxResult.Size = new System.Drawing.Size(347, 183);
-            this.richTxtBxResult.TabIndex = 0;
-            this.richTxtBxResult.Text = "";
             // 
             // treeGraph
             // 
             this.treeGraph.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeGraph.Location = new System.Drawing.Point(0, 0);
             this.treeGraph.Name = "treeGraph";
-            this.treeGraph.Size = new System.Drawing.Size(347, 354);
+            this.treeGraph.Size = new System.Drawing.Size(347, 329);
             this.treeGraph.TabIndex = 1;
             // 
-            // statusStrip
+            // richTxtBxResult
             // 
-            this.statusStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLblText,
-            this.toolStripStatusLblCompact});
-            this.statusStrip.Location = new System.Drawing.Point(0, 0);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1202, 26);
-            this.statusStrip.TabIndex = 1;
+            this.richTxtBxResult.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.richTxtBxResult.Location = new System.Drawing.Point(0, 329);
+            this.richTxtBxResult.Name = "richTxtBxResult";
+            this.richTxtBxResult.ReadOnly = true;
+            this.richTxtBxResult.Size = new System.Drawing.Size(347, 183);
+            this.richTxtBxResult.TabIndex = 0;
+            this.richTxtBxResult.Text = "";
             // 
-            // toolStripStatusLblText
+            // openFileDialog
             // 
-            this.toolStripStatusLblText.Name = "toolStripStatusLblText";
-            this.toolStripStatusLblText.Size = new System.Drawing.Size(1070, 20);
-            this.toolStripStatusLblText.Spring = true;
-            this.toolStripStatusLblText.Text = "Cantidad texto";
-            this.toolStripStatusLblText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // toolStripStatusLblCompact
-            // 
-            this.toolStripStatusLblCompact.Name = "toolStripStatusLblCompact";
-            this.toolStripStatusLblCompact.Size = new System.Drawing.Size(78, 20);
-            this.toolStripStatusLblCompact.Text = "Porcentaje";
+            this.openFileDialog.DefaultExt = "*.txt";
+            this.openFileDialog.Filter = "Archivo (.txt)|*.txt";
+            this.openFileDialog.Title = "Huffman";
             // 
             // formHome
             // 
@@ -280,6 +293,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FormHome_Load);
             this.grpBxHuffman.ResumeLayout(false);
             this.grpBxHuffman.PerformLayout();
             this.toolStripCont.BottomToolStripPanel.ResumeLayout(false);
@@ -287,6 +301,8 @@
             this.toolStripCont.ContentPanel.ResumeLayout(false);
             this.toolStripCont.ResumeLayout(false);
             this.toolStripCont.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.splitContSide.Panel1.ResumeLayout(false);
             this.splitContSide.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContSide)).EndInit();
@@ -295,8 +311,6 @@
             this.splitContInfo.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContInfo)).EndInit();
             this.splitContInfo.ResumeLayout(false);
-            this.statusStrip.ResumeLayout(false);
-            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -321,6 +335,7 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLblText;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLblCompact;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
 
