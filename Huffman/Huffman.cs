@@ -76,5 +76,12 @@ namespace Huffman
                 arbol.Add(padre);
             }
         }
+        void palabraCodigo(List<Nodo> iniciales, Nodo root)
+        {
+            foreach (var nodo in iniciales)
+            {
+                nodo.Codigo = nodo.codigo(root);
+            }
+        }
     }
 }
