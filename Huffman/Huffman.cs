@@ -14,7 +14,7 @@ namespace Huffman
         /// </summary>
         /// <param name="caracteres">Tabla hash recuperada de la cantidad de informacion</param>
         /// <returns>Arbol ordenado por numero de ocurrencia y al mismo tiempo por aparicion del caracter</returns>
-        List<Nodo> crearNodos(Hashtable caracteres)
+        public static List<Nodo> crearNodos(Hashtable caracteres)
         {
             List<Nodo> arbol = new List<Nodo>();
 
@@ -33,7 +33,7 @@ namespace Huffman
         /// Creacion de padres con valor compuesto para definir el arbol
         /// </summary>
         /// <param name="arbol">Arbol inicial con solo nodos iniciales</param>
-        void valorCompuesto(List<Nodo> arbol)
+        public static void valorCompuesto(List<Nodo> arbol)
         {
             // Siempre que se tengan mas de 1 nodo sin padre
             while (arbol.sinPadres().Count > 1)
@@ -100,7 +100,7 @@ namespace Huffman
         /// </summary>
         /// <param name="iniciales">Nodos iniciales (caracteres analizados)</param>
         /// <param name="root">Nodo root o final inicio del arbol</param>
-        void palabraCodigo(List<Nodo> iniciales, Nodo root)
+        public static void palabraCodigo(List<Nodo> iniciales, Nodo root)
         {
             foreach (var nodo in iniciales)
             {
