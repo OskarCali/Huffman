@@ -132,5 +132,36 @@ namespace Huffman
 
             return codigo;
         }
+
+        /// <summary>
+        /// Metodo para obtener informacion sobre el texto analizado
+        /// </summary>
+        /// <param name="original">Texto original</param>
+        /// <param name="compactado">Texto compactado</param>
+        /// <returns>Informacion sobre el texto</returns>
+        public static string information(string original, string compactado)
+        {
+            int bitOriginal = original.Length * 8;
+            int bitCompactado = compactado.Length;
+
+            string info = "";
+
+            info += "Texto original = " + bitOriginal + " bits\n";
+            info += "Texto compactado = " + bitCompactado + " bits\n\n";
+            info += "Porcentaje de compactacion = " + Huffman.porcentaje(bitOriginal, bitCompactado);
+
+            return info;
+        }
+
+        /// <summary>
+        /// Metodo para obtener el porcentaje de compactacion
+        /// </summary>
+        /// <param name="bitOriginal">Cantidad de bits del texto original</param>
+        /// <param name="bitCompactado">Cantidad de bits del texto compactado</param>
+        /// <returns>Porcentaje de compactacion</returns>
+        public static string porcentaje(int bitOriginal, int bitCompactado)
+        {
+            return (100 - ((bitCompactado * 100.0) / bitOriginal)) + "%";
+        }
     }
 }
