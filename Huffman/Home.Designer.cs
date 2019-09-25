@@ -67,7 +67,7 @@
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(1202, 60);
+            this.lblTitle.Size = new System.Drawing.Size(1332, 60);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "HUFFMAN";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -83,7 +83,7 @@
             this.grpBxHuffman.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpBxHuffman.Location = new System.Drawing.Point(0, 60);
             this.grpBxHuffman.Name = "grpBxHuffman";
-            this.grpBxHuffman.Size = new System.Drawing.Size(1202, 90);
+            this.grpBxHuffman.Size = new System.Drawing.Size(1332, 90);
             this.grpBxHuffman.TabIndex = 1;
             this.grpBxHuffman.TabStop = false;
             this.grpBxHuffman.Text = "Huffman";
@@ -91,7 +91,7 @@
             // btnShow
             // 
             this.btnShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnShow.Location = new System.Drawing.Point(1021, 29);
+            this.btnShow.Location = new System.Drawing.Point(1151, 29);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(100, 40);
             this.btnShow.TabIndex = 5;
@@ -102,7 +102,7 @@
             // btnCompact
             // 
             this.btnCompact.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCompact.Location = new System.Drawing.Point(808, 29);
+            this.btnCompact.Location = new System.Drawing.Point(938, 29);
             this.btnCompact.Name = "btnCompact";
             this.btnCompact.Size = new System.Drawing.Size(130, 40);
             this.btnCompact.TabIndex = 4;
@@ -163,11 +163,11 @@
             // toolStripCont.ContentPanel
             // 
             this.toolStripCont.ContentPanel.Controls.Add(this.splitContSide);
-            this.toolStripCont.ContentPanel.Size = new System.Drawing.Size(1202, 512);
+            this.toolStripCont.ContentPanel.Size = new System.Drawing.Size(1332, 512);
             this.toolStripCont.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripCont.Location = new System.Drawing.Point(0, 150);
             this.toolStripCont.Name = "toolStripCont";
-            this.toolStripCont.Size = new System.Drawing.Size(1202, 563);
+            this.toolStripCont.Size = new System.Drawing.Size(1332, 563);
             this.toolStripCont.TabIndex = 2;
             this.toolStripCont.Text = "toolStripContainer1";
             // 
@@ -180,13 +180,13 @@
             this.toolStripStatusLblCompact});
             this.statusStrip.Location = new System.Drawing.Point(0, 0);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1202, 26);
+            this.statusStrip.Size = new System.Drawing.Size(1332, 26);
             this.statusStrip.TabIndex = 1;
             // 
             // toolStripStatusLblText
             // 
             this.toolStripStatusLblText.Name = "toolStripStatusLblText";
-            this.toolStripStatusLblText.Size = new System.Drawing.Size(1109, 20);
+            this.toolStripStatusLblText.Size = new System.Drawing.Size(1239, 20);
             this.toolStripStatusLblText.Spring = true;
             this.toolStripStatusLblText.Text = "Cantidad texto";
             this.toolStripStatusLblText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -213,8 +213,8 @@
             this.splitContSide.Panel2.Controls.Add(this.treeGraph);
             this.splitContSide.Panel2.Controls.Add(this.richTxtBxResult);
             this.splitContSide.Panel2MinSize = 320;
-            this.splitContSide.Size = new System.Drawing.Size(1202, 512);
-            this.splitContSide.SplitterDistance = 850;
+            this.splitContSide.Size = new System.Drawing.Size(1332, 512);
+            this.splitContSide.SplitterDistance = 941;
             this.splitContSide.SplitterWidth = 5;
             this.splitContSide.TabIndex = 0;
             // 
@@ -234,7 +234,7 @@
             // 
             this.splitContInfo.Panel2.Controls.Add(this.richTxtBxCompact);
             this.splitContInfo.Panel2MinSize = 250;
-            this.splitContInfo.Size = new System.Drawing.Size(850, 512);
+            this.splitContInfo.Size = new System.Drawing.Size(941, 512);
             this.splitContInfo.SplitterDistance = 250;
             this.splitContInfo.TabIndex = 0;
             // 
@@ -243,7 +243,7 @@
             this.richTxtBxSource.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTxtBxSource.Location = new System.Drawing.Point(0, 0);
             this.richTxtBxSource.Name = "richTxtBxSource";
-            this.richTxtBxSource.Size = new System.Drawing.Size(850, 250);
+            this.richTxtBxSource.Size = new System.Drawing.Size(941, 250);
             this.richTxtBxSource.TabIndex = 0;
             this.richTxtBxSource.Text = "";
             this.richTxtBxSource.TextChanged += new System.EventHandler(this.RichTxtBxSource_TextChanged);
@@ -254,7 +254,7 @@
             this.richTxtBxCompact.Location = new System.Drawing.Point(0, 0);
             this.richTxtBxCompact.Name = "richTxtBxCompact";
             this.richTxtBxCompact.ReadOnly = true;
-            this.richTxtBxCompact.Size = new System.Drawing.Size(850, 258);
+            this.richTxtBxCompact.Size = new System.Drawing.Size(941, 258);
             this.richTxtBxCompact.TabIndex = 0;
             this.richTxtBxCompact.Text = "";
             // 
@@ -263,7 +263,7 @@
             this.treeGraph.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeGraph.Location = new System.Drawing.Point(0, 0);
             this.treeGraph.Name = "treeGraph";
-            this.treeGraph.Size = new System.Drawing.Size(347, 329);
+            this.treeGraph.Size = new System.Drawing.Size(386, 329);
             this.treeGraph.TabIndex = 1;
             // 
             // richTxtBxResult
@@ -272,7 +272,7 @@
             this.richTxtBxResult.Location = new System.Drawing.Point(0, 329);
             this.richTxtBxResult.Name = "richTxtBxResult";
             this.richTxtBxResult.ReadOnly = true;
-            this.richTxtBxResult.Size = new System.Drawing.Size(347, 183);
+            this.richTxtBxResult.Size = new System.Drawing.Size(386, 183);
             this.richTxtBxResult.TabIndex = 0;
             this.richTxtBxResult.Text = "";
             // 
@@ -286,11 +286,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1202, 713);
+            this.ClientSize = new System.Drawing.Size(1332, 713);
             this.Controls.Add(this.toolStripCont);
             this.Controls.Add(this.grpBxHuffman);
             this.Controls.Add(this.lblTitle);
-            this.MinimumSize = new System.Drawing.Size(1220, 760);
+            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1350, 760);
             this.Name = "formHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";

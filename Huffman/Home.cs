@@ -35,6 +35,8 @@ namespace Huffman
 
             btnFile.Enabled = false;
             lblFile.Text = "";
+
+            splitContSide.Panel2Collapsed = true;
         }
 
         private void RadBtnFile_CheckedChanged(object sender, EventArgs e)
@@ -43,6 +45,8 @@ namespace Huffman
             richTxtBxSource.Text = "";
 
             btnFile.Enabled = true;
+
+            splitContSide.Panel2Collapsed = true;
         }
 
         private void RichTxtBxSource_TextChanged(object sender, EventArgs e)
@@ -91,8 +95,16 @@ namespace Huffman
             treeGraph.Nodes.AddRange(arbol.FindLast(x => true).arbolUI(arbol.inicial(caracteres)).ToArray());
             treeGraph.EndUpdate();
             treeGraph.ExpandAll();
-            //Huffman.palabraCodigo(arbol.inicial(caracteres));
-            //huffman(text);
+
+            richTxtBxCompact.Text = Huffman.codigoHuffman(arbol.inicial(caracteres), text);
+            richTxtBxResult.Text = Huffman.information(text, richTxtBxCompact.Text);
+
+            toolStripStatusLblText.Text = text.Length + " caracteres analizados";
+            toolStripStatusLblCompact.Text = Huffman.porcentaje(text.Length * 8, richTxtBxCompact.TextLength) + " compactado";
+
+            splitContSide.Panel2Collapsed = false;
+
+            btnShow.Text = "OCULTAR";
             btnShow.Enabled = true;
         }
 
