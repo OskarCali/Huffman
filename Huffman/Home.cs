@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Huffman
@@ -74,16 +66,13 @@ namespace Huffman
 
         private void BtnCompact_Click(object sender, EventArgs e)
         {
-            string text = richTxtBxSource.Text;
+            var text = richTxtBxSource.Text;
 
-            Hashtable caracteres = Cantidad_de_Informacion.analizarTexto(text);
-            List<Nodo> arbol = Huffman.crearNodos(caracteres);
+            var caracteres = Cantidad_de_Informacion.analizarTexto(text);
+            var arbol = Huffman.crearNodos(caracteres);
 
             treeGraph.BeginUpdate();
-            foreach (var nodo in arbol)
-            {
-                treeGraph.Nodes.Add(nodo.NodoId.ToString(), nodo.Nombre);
-            }
+            foreach (var nodo in arbol) treeGraph.Nodes.Add(nodo.NodoId.ToString(), nodo.Nombre);
             treeGraph.EndUpdate();
             treeGraph.ExpandAll();
 
@@ -100,7 +89,8 @@ namespace Huffman
             richTxtBxResult.Text = Huffman.information(text, richTxtBxCompact.Text);
 
             toolStripStatusLblText.Text = text.Length + " caracteres analizados";
-            toolStripStatusLblCompact.Text = Huffman.porcentaje(text.Length * 8, richTxtBxCompact.TextLength) + " compactado";
+            toolStripStatusLblCompact.Text =
+                Huffman.porcentaje(text.Length * 8, richTxtBxCompact.TextLength) + " compactado";
 
             splitContSide.Panel2Collapsed = false;
 

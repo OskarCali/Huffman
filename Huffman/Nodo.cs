@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Huffman
+﻿namespace Huffman
 {
     /// <summary>
-    /// Definicion de clase Nodo
+    ///     Definicion de clase Nodo
     /// </summary>
-    class Nodo
+    internal class Nodo
     {
         public int NodoId { get; set; }
         public string Nombre { get; set; }
@@ -22,7 +16,7 @@ namespace Huffman
         public Nodo Izquierdo { get; set; }
 
         /// <summary>
-        /// Constructor de nodo (inicial)
+        ///     Constructor de nodo (inicial)
         /// </summary>
         /// <param name="id">Id de nodo</param>
         /// <param name="nombre">Nombre del nodo (caracter)</param>
@@ -35,7 +29,7 @@ namespace Huffman
         }
 
         /// <summary>
-        /// Constructor de nodo (padre)
+        ///     Constructor de nodo (padre)
         /// </summary>
         /// <param name="nodoId">Id de nodo</param>
         /// <param name="nombre">Nombre del nodo (compuesto por hijos)</param>
