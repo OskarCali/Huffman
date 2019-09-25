@@ -55,7 +55,10 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Huffman.cs" />
+    <Compile Include="huffmanExtension.cs" />
     <Compile Include="Nodo.cs" />
+    <Compile Include="nodoExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Home.resx">

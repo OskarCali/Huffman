@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,8 @@ namespace Huffman
 
             btnFile.Enabled = false;
             lblFile.Text = "";
+
+            splitContSide.Panel2Collapsed = true;
         }
 
         private void RadBtnFile_CheckedChanged(object sender, EventArgs e)
@@ -42,6 +45,8 @@ namespace Huffman
             richTxtBxSource.Text = "";
 
             btnFile.Enabled = true;
+
+            splitContSide.Panel2Collapsed = true;
         }
 
         private void RichTxtBxSource_TextChanged(object sender, EventArgs e)
@@ -57,7 +62,14 @@ namespace Huffman
 
         private void BtnFile_Click(object sender, EventArgs e)
         {
-            // TODO: Abrir archivo y mostrar texto
+            openFileDialog.ShowDialog(this);
+
+            if (openFileDialog.CheckFileExists)
+            {
+                lblFile.Text = openFileDialog.FileName;
+
+                richTxtBxSource.Text = File.ReadAllText(openFileDialog.FileName);
+            }
         }
 
         private void BtnCompact_Click(object sender, EventArgs e)
@@ -83,8 +95,16 @@ namespace Huffman
             treeGraph.Nodes.AddRange(arbol.FindLast(x => true).arbolUI(arbol.inicial(caracteres)).ToArray());
             treeGraph.EndUpdate();
             treeGraph.ExpandAll();
-            //Huffman.palabraCodigo(arbol.inicial(caracteres));
-            //huffman(text);
+
+            richTxtBxCompact.Text = Huffman.codigoHuffman(arbol.inicial(caracteres), text);
+            richTxtBxResult.Text = Huffman.information(text, richTxtBxCompact.Text);
+
+            toolStripStatusLblText.Text = text.Length + " caracteres analizados";
+            toolStripStatusLblCompact.Text = Huffman.porcentaje(text.Length * 8, richTxtBxCompact.TextLength) + " compactado";
+
+            splitContSide.Panel2Collapsed = false;
+
+            btnShow.Text = "OCULTAR";
             btnShow.Enabled = true;
         }
 
