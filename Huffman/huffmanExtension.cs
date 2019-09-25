@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,5 +43,32 @@ namespace Huffman
             return arbol;
         }
 
+        /// <summary>
+        /// Metodo para obtener los nodos iniciales o analizados
+        /// </summary>
+        /// <param name="arbol">Arbol completo despues de aplicar valor compuesto</param>
+        /// <param name="caracteres">Hashtable con caracteres analizados</param>
+        /// <returns>Lista de nodos iniciales o analizados</returns>
+        public static List<Nodo> inicial(this List<Nodo> arbol, Hashtable caracteres)
+        {
+            List<Nodo> iniciales = new List<Nodo>();
+            List<Element> elements = caracteres.Values.Cast<Element>().ToList();
+            List<string> nombreCaracter = new List<string>();
+            
+            foreach (var element in elements)
+            {
+                nombreCaracter.Add(element.Caracter.ToString());
+            }
+
+            foreach (var nodo in arbol)
+            {
+                if (nombreCaracter.Contains(nodo.Nombre))
+                {
+                    iniciales.Add(nodo);
+                }
+            }
+
+            return iniciales;
+        }
     }
 }
