@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,7 +57,14 @@ namespace Huffman
 
         private void BtnFile_Click(object sender, EventArgs e)
         {
-            // TODO: Abrir archivo y mostrar texto
+            openFileDialog.ShowDialog(this);
+
+            if (openFileDialog.CheckFileExists)
+            {
+                lblFile.Text = openFileDialog.FileName;
+
+                richTxtBxSource.Text = File.ReadAllText(openFileDialog.FileName);
+            }
         }
 
         private void BtnCompact_Click(object sender, EventArgs e)

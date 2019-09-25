@@ -90,6 +90,7 @@
             // 
             // btnShow
             // 
+            this.btnShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShow.Location = new System.Drawing.Point(1021, 29);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(100, 40);
@@ -100,6 +101,7 @@
             // 
             // btnCompact
             // 
+            this.btnCompact.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCompact.Location = new System.Drawing.Point(808, 29);
             this.btnCompact.Name = "btnCompact";
             this.btnCompact.Size = new System.Drawing.Size(130, 40);
