@@ -107,5 +107,30 @@ namespace Huffman
                 nodo.Codigo = nodo.codigo(root);
             }
         }
+
+        /// <summary>
+        /// Metodo para imprimir el codigo final de Huffman
+        /// </summary>
+        /// <param name="iniciales">Nodos iniciales que tienen su palabra codigo</param>
+        /// <param name="texto">Texto que se compacta</param>
+        /// <returns>Texto compactado (codigo)</returns>
+        public static string codigoHuffman(List<Nodo> iniciales, string texto)
+        {
+            string codigo = "";
+
+            foreach (var caracter in texto)
+            {
+                foreach (var nodo in iniciales)
+                {
+                    if (caracter.ToString() == nodo.Nombre)
+                    {
+                        codigo += nodo.Codigo;
+                        break;
+                    }
+                }
+            }
+
+            return codigo;
+        }
     }
 }
