@@ -54,9 +54,7 @@ namespace Huffman
 
         private void BtnFile_Click(object sender, EventArgs e)
         {
-            openFileDialog.ShowDialog(this);
-
-            if (openFileDialog.CheckFileExists)
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 lblFile.Text = openFileDialog.FileName;
 
