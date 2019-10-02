@@ -13,6 +13,10 @@ namespace Huffman
 
         private void FormHome_Load(object sender, EventArgs e)
         {
+            lblFilename.Text = "";
+            toolStripStLblCompact.Text = "";
+            toolStripStLblText.Text = "";
+
             splitContSide.Panel2Collapsed = true;
 
             radBtnText.Checked = true;
@@ -26,7 +30,7 @@ namespace Huffman
             richTxtBxSource.Text = "";
 
             btnFile.Enabled = false;
-            lblFile.Text = "";
+            lblFilename.Text = "";
 
             splitContSide.Panel2Collapsed = true;
         }
@@ -56,7 +60,7 @@ namespace Huffman
         {
             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
-                lblFile.Text = openFileDialog.FileName;
+                lblFilename.Text = openFileDialog.FileName;
 
                 richTxtBxSource.Text = File.ReadAllText(openFileDialog.FileName);
             }
@@ -65,9 +69,10 @@ namespace Huffman
         private void BtnCompact_Click(object sender, EventArgs e)
         {
             var text = richTxtBxSource.Text;
-
             var caracteres = Cantidad_de_Informacion.analizarTexto(text);
             var arbol = Huffman.crearNodos(caracteres);
+
+            treeGraph.Nodes.Clear();
 
             treeGraph.BeginUpdate();
             foreach (var nodo in arbol) treeGraph.Nodes.Add(nodo.NodoId.ToString(), nodo.Nombre);
@@ -86,8 +91,8 @@ namespace Huffman
             richTxtBxCompact.Text = Huffman.codigoHuffman(arbol.inicial(caracteres), text);
             richTxtBxResult.Text = Huffman.information(text, richTxtBxCompact.Text);
 
-            toolStripStatusLblText.Text = text.Length + " caracteres analizados";
-            toolStripStatusLblCompact.Text =
+            toolStripStLblText.Text = text.Length + " caracteres analizados";
+            toolStripStLblCompact.Text =
                 Huffman.porcentaje(text.Length * 8, richTxtBxCompact.TextLength) + " compactado";
 
             splitContSide.Panel2Collapsed = false;
@@ -100,6 +105,12 @@ namespace Huffman
         {
             splitContSide.Panel2Collapsed = !splitContSide.Panel2Collapsed;
             btnShow.Text = splitContSide.Panel2Collapsed ? "MOSTRAR" : "OCULTAR";
+        }
+
+        private void ToolStripStLblAuthor_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Desarrollado por: Óskar Calí\n\nSeptiembre 2019", "ABOUT", MessageBoxButtons.OK,
+                MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
         }
     }
 }
